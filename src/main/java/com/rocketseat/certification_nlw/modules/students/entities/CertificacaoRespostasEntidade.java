@@ -9,12 +9,12 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnswersCertificationsEntity {
+public class CertificacaoRespostasEntidade {
 
     private UUID id;
-    private UUID certificationId;
-    private UUID studentId;
-    private UUID questionId;
-    private UUID answerId;
-    private boolean isCorrect;
+    private UUID certificacaoId;
+    private UUID estudanteId;
+    private UUID perguntaId;
+    private UUID respostaId;
+    private boolean estaCorreta;
 }

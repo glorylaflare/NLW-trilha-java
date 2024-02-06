@@ -10,11 +10,11 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CertificationStudentEntity {
+public class CertificacaoEstudanteEntidade {
 
     private UUID id;
-    private UUID studentId;
-    private String technology;
-    private int grate;
-    List<AnswersCertificationsEntity> answersCertificationsEntity;
+    private UUID estudanteId;
+    private String tecnologia;
+    private int notas;
+    List<CertificacaoRespostasEntidade> certificacaoRespostasEntidades;
 }

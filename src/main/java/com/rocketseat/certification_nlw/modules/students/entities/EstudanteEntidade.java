@@ -10,9 +10,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentEntity {
+public class EstudanteEntidade {
 
     private UUID id;
     private String email;
-    private List<CertificationStudentEntity> certificationStudentEntity;
+    private List<CertificacaoEstudanteEntidade> certificacaoEstudanteEntidade;
 }
