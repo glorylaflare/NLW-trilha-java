@@ -1,13 +1,19 @@
 package com.rocketseat.certification_nlw.modules.students.services;
 
 import com.rocketseat.certification_nlw.modules.students.dto.VerificaCertificacaoDto;
+import com.rocketseat.certification_nlw.modules.students.repositories.CertificacaoEstudanteRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class VerificaSeTemCertificacao {
 
+    @Autowired
+    private CertificacaoEstudanteRepositorio certificacaoEstudanteRepositorio;
+
     public boolean execute(VerificaCertificacaoDto dto) {
-        if(dto.getEmail().equals("marcelo@email.com") && dto.getTecnologia().equals("Java")) {
+        var result = this.certificacaoEstudanteRepositorio.findByStudentEmailAndTecnology(dto.getEmail(), dto.getTecnologia());
+        if(!result.isEmpty()) {
             return true;
         }
         return false;
