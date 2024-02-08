@@ -1,7 +1,9 @@
 package com.rocketseat.certification_nlw.modules.students.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,11 +11,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "certificacoes")
+@Builder
 public class CertificacaoEstudanteEntidade {
 
     @Id
@@ -33,8 +37,9 @@ public class CertificacaoEstudanteEntidade {
     @JoinColumn(name = "estudante_id", insertable = false, updatable = false)
     private EstudanteEntidade estudanteEntidade;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "resposta_certificacao_id", insertable = false, updatable = false)
+    @JsonManagedReference
     List<CertificacaoRespostasEntidade> certificacaoRespostasEntidades;
 
     @CreationTimestamp

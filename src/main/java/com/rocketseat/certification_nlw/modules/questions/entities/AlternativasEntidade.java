@@ -20,6 +20,7 @@ public class AlternativasEntidade {
 
     private String descricao;
 
+    @Column(name = "esta_correta")
     private boolean estaCorreta;
 
     @CreationTimestamp
